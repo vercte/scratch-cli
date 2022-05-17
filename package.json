@@ -1,0 +1,35 @@
+{
+  "name": "meow-funfacts",
+  "version": "1.0.0",
+  "description": "meowclient automatic fun facts",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "boolbase": "^1.0.0",
+    "chalk": "^5.0.1",
+    "cross-fetch": "^3.1.5",
+    "css-select": "^4.3.0",
+    "css-what": "^6.1.0",
+    "dom-serializer": "^1.4.1",
+    "domelementtype": "^2.3.0",
+    "domhandler": "^4.3.1",
+    "domutils": "^2.8.0",
+    "entities": "^2.2.0",
+    "he": "^1.2.0",
+    "meowclient": "^2.3.1",
+    "node-fetch": "^2.6.7",
+    "node-html-parser": "^5.3.3",
+    "nth-check": "^2.0.1",
+    "readline-sync": "^1.4.10",
+    "tr46": "^0.0.3",
+    "webidl-conversions": "^3.0.1",
+    "whatwg-url": "^5.0.0",
+    "ws": "^8.6.0"
+  },
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "lopste",
+  "license": "ISC"
+}
