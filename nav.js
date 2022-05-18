@@ -6,7 +6,7 @@ const theme = {
   "accent": Chalk.hex("#fff")
 }
 
-class navList {
+class NavList {
   constructor(prompt, choices) {
     this.prompt = prompt;
     this.choices = choices;
@@ -31,17 +31,14 @@ class navList {
           current = 0;
         }
       }
-
-      if(lastKey == " ") {
-        choice = current + 1;
-      }
       
       console.log(this.prompt);
       for(let i = 0; i < this.choices.length; i++) {
+        let currentIndex = this.choices[i].display;
         if(i == current) {
-          console.log(`${theme.main(">")} ${theme.accent(this.choices[i])}`)
+          console.log(`${theme.main(">")} ${theme.accent(Chalk.underline(currentIndex))}`)
         } else {
-          console.log(`  ${theme.accent(this.choices[i])}`);
+          console.log(`  ${theme.accent(this.choices[i].display)}`);
         }
       }
       console.log(theme.main("A & D to select, Space to choose"));
@@ -50,14 +47,27 @@ class navList {
         "mask": "",
         "limit": "ad "
       })
+
+      if(lastKey == " ") {
+        choice = current + 1;
+      }
     }
     choice = choice - 1;
     return {"choiceIndex": choice, "chosen": this.choices[choice]}
   }
 }
 
-function createList(prompt, choices) {
-  return new navList(prompt, choices)
+class Page {
+  constructor(name, startFunc) {
+    this.pageName = name;
+    this.openPage = startFunc;
+    this.open = this.open.bind(this);
+  }
+
+  open() {
+    app.openPage = this.pageName;
+    return this.openPage();
+  }
 }
 
-export default createList;
+export default {Page, NavList};
